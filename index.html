@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BinBuddy – Thornton’s Bin Cleaning & Curb Service</title>
+  <meta name="description" content="Fast, affordable, eco-friendly trash bin cleaning and daily curb service in Thornton & Adams County. Book online and never touch a dirty bin again." />
+
+  <!-- Open Graph (nice previews when shared) -->
+  <meta property="og:title" content="BinBuddy – Bin Cleaning & Curb Service" />
+  <meta property="og:description" content="Fresh, sanitized bins and daily curb service. Thornton, CO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/hero_preview.jpg" />
+  <meta property="og:url" content="https://binbuddy2025.com" />
+
+  <style>
+    :root{
+      --bb-blue:#1f6feb;         /* primary blue */
+      --bb-blue-700:#1a5bd0;
+      --bb-blue-50:#f0f6ff;
+      --bb-white:#ffffff;
+      --bb-text:#203040;
+      --bb-muted:#5b6b7b;
+      --bb-accent:#19c37d;       /* subtle success green for checks */
+      --container:1100px;
+      --radius:14px;
+      --shadow:0 8px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--bb-text);background:#fff;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Header */
+    .header{
+      position:sticky;top:0;z-index:50;
+      background:var(--bb-white);border-bottom:1px solid #e8eef7;
+    }
+    .bar{max-width:var(--container);margin:auto;display:flex;align-items:center;gap:18px;padding:14px 18px}
+    .logo-wrap{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+    .brand{font-weight:700;font-size:1.15rem;letter-spacing:.2px}
+    nav{margin-left:auto;display:flex;gap:18px;align-items:center}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:10px;font-weight:600;
+      border:1px solid transparent;transition:.2s ease;cursor:pointer
+    }
+    .btn-primary{background:var(--bb-blue);color:#fff}
+    .btn-primary:hover{background:var(--bb-blue-700)}
+    .btn-outline{border-color:#d7e2f2;background:#fff}
+    .btn-outline:hover{border-color:var(--bb-blue);color:var(--bb-blue)}
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(180deg, var(--bb-blue) 0%, #2a7ef0 100%);
+      color:#fff;padding:48px 18px 60px
+    }
+    .hero-inner{max-width:var(--container);margin:auto;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px);line-height:1.1}
+    .hero p{margin:0 0 20px;color:#e8f0ff}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-card{
+      background:#ffffff;border-radius:18px;box-shadow:var(--shadow);padding:18px;display:flex;gap:12px;align-items:center;color:var(--bb-text)
+    }
+    .check{width:22px;height:22px;border-radius:50%;background:var(--bb-accent);display:inline-grid;place-items:center;color:#fff;font-weight:700;font-size:14px}
+
+    /* Sections */
+    section{padding:54px 18px}
+    .container{max-width:var(--container);margin:auto}
+    .section-title{font-size:clamp(22px,2.6vw,32px);margin:0 0 16px}
+    .muted{color:var(--bb-muted)}
+
+    /* How it works */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{background:var(--bb-blue-50);border:1px solid #dfebff;border-radius:14px;padding:18px}
+    .step h4{margin:8px 0 6px}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:#fff;border:1px solid #e7edf6;border-radius:18px;box-shadow:var(--shadow);padding:22px;display:flex;flex-direction:column;gap:14px
+    }
+    .badge{display:inline-block;background:#eaf3ff;color:#275edb;border:1px solid #d4e5ff;padding:6px 10px;border-radius:999px;font-weight:600;font-size:.85rem}
+    .price{font-size:30px;font-weight:800}
+    .features{display:grid;gap:8px;margin:6px 0 2px}
+    .feature{display:flex;align-items:center;gap:10px}
+    .feature .check{min-width:22px}
+
+    /* Contact/footer */
+    .contact{background:#f7faff;border-top:1px solid #e8eef7}
+    .footer{font-size:.9rem;color:#6b7a8a;padding:18px;text-align:center;border-top:1px solid #e8eef7}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-inner{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr}
+      nav{display:none} /* simple for MVP */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" aria-label="Site header">
+    <div class="bar">
+      <!-- LOGO TOP-LEFT -->
+      <a class="logo-wrap" href="#top" aria-label="BinBuddy home">
+        <!-- Replace src with your actual logo file -->
+        <img class="logo" src="/images/binbuddy-logo.png" alt="BinBuddy logo (smiling bin)" />
+        <span class="brand">BinBuddy</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#services" class="btn btn-outline">Services</a>
+        <a href="#pricing" class="btn btn-outline">Pricing</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
+        <!-- Replace href with your actual PayPal checkout/subscription link -->
+        <a href="https://www.paypal.com/checkoutnow?token=YOUR_LINK" class="btn btn-primary">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <h1>Thornton’s #1 Bin Cleaning & Daily Curb Service</h1>
+        <p>Fast, affordable, and eco-friendly trash bin cleaning—plus daily take-out and bring-back service so you never touch a dirty bin again.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://www.paypal.com/checkoutnow?token=YOUR_BASIC_LINK">Start for $75/mo</a>
+          <a class="btn btn-outline" href="#pricing">View Pricing</a>
+        </div>
+        <div class="hero-card" role="note" aria-label="Quick benefits">
+          <span class="check">✓</span>
+          <div>
+            <strong>Local & family-owned in Thornton</strong><br />
+            Eco-friendly cleaning • Secure PayPal payments
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional hero image you generated -->
+      <div aria-hidden="true">
+        <!-- Replace with your landing mockup image -->
+        <img src="/images/binbuddy-hero-mockup.png" alt="BinBuddy service preview" />
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="muted">Simple 3-step process designed for busy households in Thornton & Adams County.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="feature"><span class="check">✓</span><strong>Book Online</strong></div>
+          <p>Choose a one-time clean or a monthly plan. Pay securely with PayPal.</p>
+        </div>
+        <div class="step">
+          <div class="feature"><span class="check">✓</span><strong>We Do the Work</strong></div>
+          <p>We clean and sanitize your bins and (optionally) handle daily curb in/out.</p>
+        </div>
+        <div class="step">
+          <div class="feature"><span class="check">✓</span><strong>Enjoy Fresh Bins</strong></div>
+          <p>No more odors, pests, or bacteria—just clean, ready-to-use bins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Pricing</h2>
+      <p class="muted">Transparent and affordable. Subscriptions give you convenience + savings.</p>
+
+      <div class="pricing">
+        <!-- One-time -->
+        <article class="card" aria-label="One-time cleaning">
+          <span class="badge">One-Time</span>
+          <div class="price">$25<span style="font-size:.55em;font-weight:600;color:#6b7a8a"> / bin</span></div>
+          <div class="features">
+            <div class="feature"><span class="check">✓</span>Deep clean & sanitize</div>
+            <div class="feature"><span class="check">✓</span>Deodorize & rinse</div>
+            <div class="feature"><span class="check">✓</span>Photo proof by request</div>
+          </div>
+          <a class="btn btn-primary" href="https://www.paypal.com/checkoutnow?token=YOUR_ONETIME_LINK">Book One-Time</a>
+        </article>
+
+        <!-- Basic -->
+        <article class="card" aria-label="Basic subscription">
+          <span class="badge">Most Popular</span>
+          <div class="price">$75<span style="font-size:.55em;font-weight:600;color:#6b7a8a"> / month</span></div>
+          <div class="features">
+            <div class="feature"><span class="check">✓</span>Daily curb in/out</div>
+            <div class="feature"><span class="check">✓</span>1 deep cleaning / month</div>
+            <div class="feature"><span class="check">✓</span>Priority scheduling</div>
+          </div>
+          <!-- Replace with your PayPal subscription button/link -->
+          <a class="btn btn-primary" href="https://www.paypal.com/subscribe?plan_id=YOUR_BASIC_PLAN_ID">Subscribe – Basic</a>
+        </article>
+
+        <!-- Pro -->
+        <article class="card" aria-label="Pro subscription">
+          <span class="badge">Pro</span>
+          <div class="price">$99<span style="font-size:.55em;font-weight:600;color:#6b7a8a"> / month</span></div>
+          <div class="features">
+            <div class="feature"><span class="check">✓</span>Daily curb in/out</div>
+            <div class="feature"><span class="check">✓</span>2 deep cleanings / month</div>
+            <div class="feature"><span class="check">✓</span>Best for busy families</div>
+          </div>
+          <a class="btn btn-primary" href="https://www.paypal.com/subscribe?plan_id=YOUR_PRO_PLAN_ID">Subscribe – Pro</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p>Questions or want to schedule by phone? We’ve got you.</p>
+      <div class="card">
+        <div class="features">
+          <div class="feature"><span class="check">✓</span>Call/Text: <a href="tel:+1YOURNUMBER">+1 (___) ___-____</a></div>
+          <div class="feature"><span class="check">✓</span>Email: <a href="mailto:info@binbuddy2025.com">info@binbuddy2025.com</a></div>
+          <div class="feature"><span class="check">✓</span>Service area: Thornton & Adams County</div>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="https://www.paypal.com/checkoutnow?token=YOUR_LINK">Book Now</a>
+          <a class="btn btn-outline" href="#top">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">© <span id="y"></span> BinBuddy. All rights reserved.</div>
+
+  <script>
+    // Current year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
